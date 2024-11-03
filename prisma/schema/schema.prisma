@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  previewFeatures = ["prismaSchemaFolder"]
 }
 
 datasource db {
@@ -14,23 +15,3 @@ datasource db {
   // uncomment next line if you use Prisma <5.10
   // directUrl = env("DATABASE_URL_UNPOOLED")
 }
-
-
-// Enums
-enum Role {
-  INTERN
-  ENGINEER
-  ADMIN
-}
-
-// Models
-model Employee {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String   @unique
-  role      Role
-  contact   String?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
